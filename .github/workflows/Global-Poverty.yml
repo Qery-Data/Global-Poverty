@@ -1,4 +1,4 @@
-name: SDG
+name: Global Poverty
 on: 
   workflow_dispatch:
   schedule:
