@@ -30,19 +30,13 @@ df_new = df_csv.pivot(index='reporting_year', columns='region_name', values='pop
 df_new.drop(['World'], axis=1,inplace=True)
 df_new.to_csv('data/Extreme_Poverty_Regions_Population.csv', index=True)
 
-#Extreme Poverty Share Country
-df_csv = pd.read_csv('https://api.worldbank.org/pip/v1/pip?country=all&year=all&povline=2.15&fill_gaps=false&reporting_level=all&format=csv')
-df_new = df_csv.sort_values('reporting_year').groupby('country_name').tail(1)
-df_new['headcount'] = df_new['headcount']*100
-df_new2 = df_new[['country_name', 'reporting_year', 'headcount']]
-df_new3 = df_new2[df_new2['reporting_year'] > 2005]
-df_new3.to_csv('data/Extreme_Poverty_Country_Share.csv', index=True)
-
 #Extreme Poverty Country Profile
 df_csv = pd.read_csv('https://api.worldbank.org/pip/v1/pip?country=all&year=all&povline=2.15&fill_gaps=false&reporting_level=all&format=csv')
 df_new = df_csv.sort_values('reporting_year').groupby('country_name').tail(1)
 df_new['pop_in_poverty'] = df_new['headcount']*df_new['reporting_pop']
 df_new['headcount'] = df_new['headcount']*100
-df_new2 = df_new[['country_name', 'reporting_year', 'headcount', 'pop_in_poverty']]
+df_new2 = df_new[['country_name', 'reporting_year', 'headcount', 'pop_in_poverty']].set_index('country_name')
+df_new2['headcount'] = df_new2['headcount'].round(2) 
+df_new2['pop_in_poverty'] = df_new2['pop_in_poverty'].round(2)
 df_new3 = df_new2[df_new2['reporting_year'] > 2005]
 df_new3.to_csv('data/Extreme_Poverty_Country_Profile.csv', index=True)
