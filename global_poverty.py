@@ -35,7 +35,7 @@ df_csv = pd.read_csv('https://api.worldbank.org/pip/v1/pip?country=all&year=all&
 df_csv['country_name'] = df_csv['country_name'].replace({
     'Venezuela, RB': 'R. B. de Venezuela',
     'Yemen, Rep.': 'Republic of Yemen',
-    'São Tomé and Príncipe': 'Sao Tome and Principe',
+    'Sao Tome and Principe': 'São Tomé and Príncipe',
     'Congo, Dem. Rep.': 'Democratic Republic of Congo',
     'Congo, Rep.': 'Congo',
     'Côte d\'Ivoire': 'Cote d\'Ivoire',
