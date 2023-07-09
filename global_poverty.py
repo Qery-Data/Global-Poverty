@@ -40,7 +40,17 @@ df_csv['country_name'] = df_csv['country_name'].replace({
     'Congo, Rep.': 'Congo',
     'Côte d\'Ivoire': 'Cote d\'Ivoire',
     'United States': 'United States of America',
-    'Korea, Rep.': 'Republic of Korea'
+    'Korea, Rep.': 'Republic of Korea',
+    'Micronesia, Fed. Sts.': 'Federated States of Micronesia',
+    'Cabo Verde': 'Cape Verde',
+    'St. Lucia': 'Saint Lucia',
+    'Taiwan, China': 'Taiwan',
+    'Lao PDR': 'Lao People\'s Democratic Republic',
+    'Cote d\'Ivoire': 'Côte d\'Ivoire',
+    'Iran, Islamic Rep.': 'Islamic Republic of Iran',
+    'Turkiye': 'Turkey',
+    'Egypt, Arab Rep.': 'Arab Republic of Egypt',
+    'Gambia, The': 'The Gambia'
 })
 df_new = df_csv.sort_values('reporting_year').groupby('country_name').tail(1)
 df_new['pop_in_poverty'] = df_new['headcount']*df_new['reporting_pop']
