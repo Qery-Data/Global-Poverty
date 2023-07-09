@@ -39,4 +39,14 @@ df_new2 = df_new[['country_name', 'reporting_year', 'headcount', 'pop_in_poverty
 df_new2['headcount'] = df_new2['headcount'].round(2) 
 df_new2['pop_in_poverty'] = df_new2['pop_in_poverty'].round(2)
 df_new3 = df_new2[df_new2['reporting_year'] > 2005]
+df_csv['country_name'] = df_csv['country_name'].replace({
+    'Venezuela, RB': 'R. B. de Venezuela',
+    'Yemen, Rep.': 'Republic of Yemen',
+    'São Tomé and Príncipe': 'Sao Tome and Principe',
+    'Congo, Dem. Rep.': 'Democratic Republic of Congo',
+    'Congo, Rep.': 'Congo',
+    'Côte d\'Ivoire': 'Cote d\'Ivoire',
+    'United States': 'United States of America',
+    'Korea, Rep.': 'Republic of Korea'
+})
 df_new3.to_csv('data/Extreme_Poverty_Country_Profile.csv', index=True)
