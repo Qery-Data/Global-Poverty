@@ -59,4 +59,5 @@ df_new2 = df_new[['country_name', 'reporting_year', 'headcount', 'pop_in_poverty
 df_new2['headcount'] = df_new2['headcount'].round(2) 
 df_new2['pop_in_poverty'] = df_new2['pop_in_poverty'].round(2)
 df_new3 = df_new2[df_new2['reporting_year'] > 2005]
+df_new3 = df_new3.sort_index()
 df_new3.to_csv('data/Extreme_Poverty_Country_Profile.csv', index=True)
